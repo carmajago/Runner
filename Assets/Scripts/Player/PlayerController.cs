@@ -54,7 +54,8 @@ public class PlayerController : MonoBehaviour
 
     private void moverPlayer()
     {
-        tr.Translate(Vector2.right * velocidad * Time.deltaTime * direccion);
+       
+        tr.Translate(Vector2.right * velocidad *0.02f* direccion);
         // rb2D.velocity = Vector2.right * velocidad * Time.deltaTime * 10f;
     }
 

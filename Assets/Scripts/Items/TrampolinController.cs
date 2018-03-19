@@ -22,7 +22,7 @@ public class TrampolinController : MonoBehaviour {
     IEnumerator impulsar(Rigidbody2D rb2D)
     {
         yield return new WaitForSeconds(tiempoEspera);
-        Debug.Log("entra:");
+
         rb2D.AddForce(Vector2.up * fuerzaImpulso,ForceMode2D.Impulse);
 
     }

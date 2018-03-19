@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
+    public Vector3 spawn;
     public float velocidad;
     public float fuerzaSalto;
     public Vector2 velocidadLimite;
@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         tr = GetComponent<Transform>();
         controladorSalto = GetComponent<ControladorSalto>();
+        spawn = tr.position;
     }
 
 
@@ -57,6 +58,18 @@ public class PlayerController : MonoBehaviour
        
         tr.Translate(Vector2.right * velocidad *0.02f* direccion);
         // rb2D.velocity = Vector2.right * velocidad * Time.deltaTime * 10f;
+    }
+
+    void respawn()
+    {
+        tr.position = spawn;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer==9)//GameOver
+        {
+            respawn();
+        }
     }
 
 

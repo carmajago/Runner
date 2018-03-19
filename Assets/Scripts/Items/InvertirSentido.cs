@@ -12,7 +12,7 @@ public class InvertirSentido : MonoBehaviour {
     {
         if (collision.tag == "Player")
         {
-            Debug.Log("no c");
+
             if (playerController == null)
             {
                 playerController = collision.GetComponent<PlayerController>();
